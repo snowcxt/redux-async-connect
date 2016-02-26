@@ -90,7 +90,9 @@ class ReduxAsyncConnect extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.loadAsyncData(nextProps);
+    if (this.props.location.pathname !== nextProps.location.pathname) {
+      this.loadAsyncData(nextProps);
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
